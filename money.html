@@ -138,9 +138,24 @@
        
     </div>
   <div style="text-align: center;">  
-      <input type="submit" value="제출하기" style="margin: 0.5em;" onclick="alert('입력 완료')">
+      <input type="submit" value="제출하기" style="margin: 0.5em;" onclick="alertWindow()">
+      <input type="reset" value="초기화" style="margin: 0.5em;">
       <iframe name="result" style="height: 0; width: 0; border: 0em">결과</iframe>
-  </div>
+      <script>
+          function alertWindow(){
+              var date = document.getElementById("date");
+              var category = document.getElementById("category");
+              var pay = document.getElementById("pay");
+              var item = document.getElementById("item");
+              var price = document.getElementById("price");
+              
+              if (date.value=="" || category.value=="" || pay.value=="" || item.value=="" || price.value=="") {
+               alert("입력이 안 된 것이 있음")
+               } else {
+                 alert("입력완료")    
+               } 
+          }
+      </script>
 </form>
 </div>
 </body>
