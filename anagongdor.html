@@ -60,7 +60,7 @@
 </head>
 <body>
   <div class="content-wrap" style="overflow:scroll;">
-  <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSecbdyVcl41Nxzd8VXvqX2R2fWNYy05337H9e_h-84OJIbolQ/formResponse" target="_blank" method="post">
+  <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSecbdyVcl41Nxzd8VXvqX2R2fWNYy05337H9e_h-84OJIbolQ/formResponse" target="result" method="post">
    <h1 style="text-align: center;">제1회 아나공도르</h1>
     <hr>
 
@@ -75,7 +75,7 @@
 
      <fieldset>  
      <legend>쿼터</legend>
-        <input type="text" title="쿼터"  name="entry.802989718" title="쿼터" placeholder="쿼터" style="margin-left:1em; width: 10em;" autocomplete="one-time-code" autofocus required>
+        <input type="text" title="쿼터"  name="entry.802989718" id ="a" title="쿼터" placeholder="쿼터" style="margin-left:1em; width: 10em;" autocomplete="one-time-code" autofocus required>
      </fieldset>   
 
      <hr>
@@ -86,17 +86,17 @@
        <table width="100%">
          <tr>
           <th scope="row"  width="10%"> 1등 </th>
-          <td> <input type="text"  name="entry.1636606677" autocomplete="one-time-code"> </td>
+          <td> <input type="text"  name="entry.1636606677" id="b" autocomplete="one-time-code"> </td>
 
          </tr>
          <tr> 
           <th scope="row"> 2등 </th>
-          <td> <input type="text"  name="entry.165039401" autocomplete="one-time-code"> </td>
+          <td> <input type="text"  name="entry.165039401" id="c" autocomplete="one-time-code"> </td>
 
          </tr> 
          <tr>
           <th scope="row"> 3등 </th>
-          <td> <input type="text"  name="entry.586086561" autocomplete="one-time-code"> </td>
+          <td> <input type="text"  name="entry.586086561" id="d" autocomplete="one-time-code"> </td>
 
          </tr>
       </table>    
@@ -104,7 +104,20 @@
        
     </div>
   <div>  
-      <input type="submit" value="제출하기" style="margin: 0.5em;">
+      <input type="submit" value="제출하기" style="margin: 0.5em;" onclick="alertWindow()">
+      <button type="button"onclick="re()">초기화</button>
+      <iframe name="result" style="height: 0; width: 0; border: 0em">결과</iframe>
+        <script>
+            function re(){
+                document.getElementById('a').value="";
+                document.getElementById('b').value="";
+                document.getElementById('c').value="";
+                document.getElementById('d').value="";
+            }
+            function alertWindow(){
+                alert("제출확인");
+            }
+        </script>
   </div>
 </form>
 </div>
