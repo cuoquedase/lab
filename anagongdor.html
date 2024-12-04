@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=yes">
-    <title>제1회 아나공도르</title>
+    <title>제2회 아나공도르</title>
     <link rel="icon" type="image/x-icon" href="https://cuoquedase.github.io/lab/favicon-96x96.png"> 
     <style>
         @font-face {
@@ -19,7 +19,7 @@
             background-image:url('https://cuoquedase.github.io/lab/IMG_1083.JPG');
             background-position: center;
             background-size:30%;
-            font-size:1em;
+            font-size:1rem; /* 폰트 크기 1rem으로 설정 */
         }
 
         .content-wrap{
@@ -38,6 +38,47 @@
             width: 1em;
             height: 1em;
             border: 0.1em;
+        }
+
+        table {
+            width: 100%;
+            margin: 10px 0;
+            border-collapse: collapse;
+            table-layout: fixed;  /* 테이블 칸 크기 고정 */
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            font-size: 1rem; /* 폰트 크기 1rem으로 설정 */
+            white-space: nowrap; /* 줄바꿈 방지 */
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* 테두리 제거 */
+        td, th {
+            border: none;
+        }
+
+        /* 라운드 라디오 버튼과 텍스트 간격 좁히기 */
+        label {
+            display: flex;
+            align-items: center; /* 라디오 버튼과 텍스트 수평으로 정렬 */
+            margin-right: 5px; /* 라디오 버튼과 텍스트 간 간격을 더 좁힘 */
+        }
+
+        input[type="radio"] {
+            margin-right: 5px; /* 라디오 버튼과 텍스트 간 간격 좁히기 */
+        }
+
+        /* 라운드 항목을 두 열로 나누기 */
+        .round-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 두 열로 나누기 */
+            gap: 10px;
         }
 
         @media screen and (min-width:320px){
@@ -62,7 +103,7 @@
 <body>
     <div class="content-wrap" style="overflow:scroll;">
     <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSecbdyVcl41Nxzd8VXvqX2R2fWNYy05337H9e_h-84OJIbolQ/formResponse" target="result" method="post">
-        <h1 style="text-align: center;">제1회 아나공도르</h1>
+        <h1 style="text-align: center;">제2회 아나공도르</h1>
         <hr>
 
         <div> 
@@ -75,12 +116,18 @@
 
         <fieldset>  
             <legend>라운드</legend>
-            <label><input type="radio" value="1" name="entry.802989718" id="round1">1라운드</label>
-            <label><input type="radio" value="2" name="entry.802989718" id="round2">2라운드</label>
-            <label><input type="radio" value="3" name="entry.802989718" id="round3">3라운드</label> <br>
-            <label><input type="radio" value="4" name="entry.802989718" id="round4">4라운드</label>
-            <label><input type="radio" value="5" name="entry.802989718" id="round5">5라운드</label>
-            <label><input type="radio" value="6" name="entry.802989718" id="round6">6라운드</label>
+            <div class="round-table">
+                <div>
+                    <label><input type="radio" value="1" name="entry.802989718" id="round1"> 1라운드</label><br>
+                    <label><input type="radio" value="2" name="entry.802989718" id="round2"> 2라운드</label><br>
+                    <label><input type="radio" value="3" name="entry.802989718" id="round3"> 3라운드</label>
+                </div>
+                <div>
+                    <label><input type="radio" value="4" name="entry.802989718" id="round4"> 4라운드</label><br>
+                    <label><input type="radio" value="5" name="entry.802989718" id="round5"> 5라운드</label><br>
+                    <label><input type="radio" value="6" name="entry.802989718" id="round6"> 6라운드</label>
+                </div>
+            </div>
         </fieldset>   
 
         <hr>
@@ -91,15 +138,96 @@
                 <table width="100%">
                     <tr>
                         <th scope="row" width="10%">1등</th>
-                        <td><input type="text" name="entry.1636606677" id="b" autocomplete="one-time-code"></td>
+                        <td>
+                            <select name="entry.1636606677" id="b">
+                                <option value="">선택</option>
+                                <option value="05 류현식">05 류현식</option>
+                                <option value="06 박진우">06 박진우</option>
+                                <option value="06 윤기섭">06 윤기섭</option>
+                                <option value="06 조정호">06 조정호</option>
+                                <option value="06 최기종">06 최기종</option>
+                                <option value="07 박시원">07 박시원</option>
+                                <option value="07 조원호">07 조원호</option>
+                                <option value="08 공윤철">08 공윤철</option>
+                                <option value="08 김동민">08 김동민</option>
+                                <option value="08 김현우">08 김현우</option>
+                                <option value="09 김민진">09 김민진</option>
+                                <option value="10 강창우">10 강창우</option>
+                                <option value="10 권순구">10 권순구</option>
+                                <option value="10 김치성">10 김치성</option>
+                                <option value="10 김한솔">10 김한솔</option>
+                                <option value="10 유민기">10 유민기</option>
+                                <option value="10 이태영">10 이태영</option>
+                                <option value="10 정동현">10 정동현</option>
+                                <option value="11 양민섭">11 양민섭</option>
+                                <option value="11 정한창">11 정한창</option>
+                                <option value="11 최동혁">11 최동혁</option>
+                                <option value="13 김정운">13 김정운</option>
+                                <option value="13 배수한">13 배수한</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr> 
                         <th scope="row">2등</th>
-                        <td><input type="text" name="entry.165039401" id="c" autocomplete="one-time-code"></td>
+                        <td>
+                            <select name="entry.165039401" id="c">
+                                <option value="">선택</option>
+                                <option value="05 류현식">05 류현식</option>
+                                <option value="06 박진우">06 박진우</option>
+                                <option value="06 윤기섭">06 윤기섭</option>
+                                <option value="06 조정호">06 조정호</option>
+                                <option value="06 최기종">06 최기종</option>
+                                <option value="07 박시원">07 박시원</option>
+                                <option value="07 조원호">07 조원호</option>
+                                <option value="08 공윤철">08 공윤철</option>
+                                <option value="08 김동민">08 김동민</option>
+                                <option value="08 김현우">08 김현우</option>
+                                <option value="09 김민진">09 김민진</option>
+                                <option value="10 강창우">10 강창우</option>
+                                <option value="10 권순구">10 권순구</option>
+                                <option value="10 김치성">10 김치성</option>
+                                <option value="10 김한솔">10 김한솔</option>
+                                <option value="10 유민기">10 유민기</option>
+                                <option value="10 이태영">10 이태영</option>
+                                <option value="10 정동현">10 정동현</option>
+                                <option value="11 양민섭">11 양민섭</option>
+                                <option value="11 정한창">11 정한창</option>
+                                <option value="11 최동혁">11 최동혁</option>
+                                <option value="13 김정운">13 김정운</option>
+                                <option value="13 배수한">13 배수한</option>
+                            </select>
+                        </td>
                     </tr> 
                     <tr>
                         <th scope="row">3등</th>
-                        <td><input type="text" name="entry.586086561" id="d" autocomplete="one-time-code"></td>
+                        <td>
+                            <select name="entry.586086561" id="d">
+                                <option value="">선택</option>
+                                <option value="05 류현식">05 류현식</option>
+                                <option value="06 박진우">06 박진우</option>
+                                <option value="06 윤기섭">06 윤기섭</option>
+                                <option value="06 조정호">06 조정호</option>
+                                <option value="06 최기종">06 최기종</option>
+                                <option value="07 박시원">07 박시원</option>
+                                <option value="07 조원호">07 조원호</option>
+                                <option value="08 공윤철">08 공윤철</option>
+                                <option value="08 김동민">08 김동민</option>
+                                <option value="08 김현우">08 김현우</option>
+                                <option value="09 김민진">09 김민진</option>
+                                <option value="10 강창우">10 강창우</option>
+                                <option value="10 권순구">10 권순구</option>
+                                <option value="10 김치성">10 김치성</option>
+                                <option value="10 김한솔">10 김한솔</option>
+                                <option value="10 유민기">10 유민기</option>
+                                <option value="10 이태영">10 이태영</option>
+                                <option value="10 정동현">10 정동현</option>
+                                <option value="11 양민섭">11 양민섭</option>
+                                <option value="11 정한창">11 정한창</option>
+                                <option value="11 최동혁">11 최동혁</option>
+                                <option value="13 김정운">13 김정운</option>
+                                <option value="13 배수한">13 배수한</option>
+                            </select>
+                        </td>
                     </tr>
                 </table>    
             </fieldset>
