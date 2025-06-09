@@ -102,7 +102,7 @@
 </head>
 <body>
     <div class="content-wrap" style="overflow:scroll;">
-    <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSecbdyVcl41Nxzd8VXvqX2R2fWNYy05337H9e_h-84OJIbolQ/formResponse" target="result" method="post">
+    <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSecbdyVcl41Nxzd8VXvqX2R2fWNYy05337H9e_h-84OJIbolQ/formResponse" target="result" method="post" onsubmit="return validateVoteForm(event);">
         <h1 style="text-align: center;">제3회 아나공도르</h1>
         <hr>
 
@@ -227,24 +227,37 @@
             </fieldset>
         </div>
         <div>  
-            <input type="submit" value="제출하기" style="margin: 0.5em;" onclick="alertWindow()">
+            <input type="submit" value="제출하기" style="margin: 0.5em;">
             <button type="button" onclick="re()">초기화</button>
             <iframe name="result" style="height: 0; width: 0; border: 0em">결과</iframe>
             <script>
-                function re(){
-                    document.getElementById('round1').checked = false;
-                    document.getElementById('round2').checked = false;
-                    document.getElementById('round3').checked = false;
-                    document.getElementById('round4').checked = false;
-                    document.getElementById('round5').checked = false;
-                    document.getElementById('round6').checked = false;
-                    document.getElementById('b').value = "";
-                    document.getElementById('c').value = "";
-                    document.getElementById('d').value = "";
-                }
-                function alertWindow(){
-                    alert("제출확인");
-                }
+                    function re() {
+                        const rounds = ['round1', 'round2', 'round3', 'round4', 'round5', 'round6'];
+                        rounds.forEach(id => document.getElementById(id).checked = false);
+
+                        document.getElementById('b').value = "";
+                        document.getElementById('c').value = "";
+                        document.getElementById('d').value = "";
+                    }
+
+                    function validateVoteForm(event) {
+                        const first = document.getElementById('b').value;
+                        const second = document.getElementById('c').value;
+                        const third = document.getElementById('d').value;
+
+                        if (!first || !second || !third) {
+                            alert("1등, 2등, 3등 모두 선택해야 합니다.");
+                            return false;
+                        }
+
+                        if (first === second || first === third || second === third) {
+                            alert("1등, 2등, 3등은 서로 다른 사람을 선택해야 합니다.");
+                            return false;
+                        }
+
+                        alert("제출확인");
+                        return true;
+                    }
             </script>
         </div>
     </form>
